@@ -38,8 +38,13 @@ class _DefaultPageState extends State<DefaultPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.network(
-                      "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Rolls_Royce_Phantom.png"),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: 250,
+                    ),
+                    child: Image.network(
+                        "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Rolls_Royce_Phantom.png"),
+                  ),
                   Text(
                     " $fontSize Rolls Royce Phantom Leozim",
                     overflow: TextOverflow.ellipsis,
