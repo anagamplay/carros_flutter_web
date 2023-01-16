@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
   _menu() {
     return Container(
       width: menuWidth,
-      color: Colors.blue[100],
+      color: Colors.grey[100],
       child: Menu(),
     );
   }
@@ -63,7 +63,6 @@ class _HomePageState extends State<HomePage> {
   _right() {
     return Container(
       width: showMenu ? size.width - menuWidth : size.width,
-      color: Colors.grey,
     );
   }
 }
