@@ -14,6 +14,8 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  String? selected;
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -26,16 +28,23 @@ class _MenuState extends State<Menu> {
   }
 
   _itemMenu(String title, IconData icon, Widget page) {
+
+    bool b = title == selected;
+
     return Material(
-      color: Colors.transparent,
+      color: b ? Theme.of(context).hoverColor : Colors.transparent,
       child: InkWell(
         onTap: () {
           AppModel app = Provider.of<AppModel>(context, listen: false);
           app.setPage(page);
+          
+          setState(() {
+            selected = title;
+          });
         },
         child: ListTile(
           leading: Icon(icon),
-          title: Text(title),
+          title: Text(title, style: TextStyle(fontWeight: b ? FontWeight.bold : FontWeight.normal),),
         ),
       ),
     );
