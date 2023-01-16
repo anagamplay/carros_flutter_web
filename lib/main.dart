@@ -1,4 +1,4 @@
-import 'package:carros_flutter_web/app_model.dart';
+import 'package:carros_flutter_web/utils/app_model.dart';
 import 'package:carros_flutter_web/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       scaffoldBackgroundColor: Colors.white,
       textTheme: TextTheme(
         bodyText2: TextStyle(
-          fontSize: 20,
+          fontSize: 22,
         ),
       ),
       primarySwatch: Colors.blue,

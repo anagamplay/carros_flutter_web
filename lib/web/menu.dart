@@ -1,4 +1,4 @@
-import 'package:carros_flutter_web/app_model.dart';
+import 'package:carros_flutter_web/utils/app_model.dart';
 import 'package:carros_flutter_web/pages/carros_page.dart';
 import 'package:carros_flutter_web/pages/default_page.dart';
 import 'package:carros_flutter_web/pages/usuarios_page.dart';

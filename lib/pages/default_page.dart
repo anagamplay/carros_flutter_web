@@ -1,4 +1,5 @@
-import 'package:carros_flutter_web/debug_widget_size.dart';
+import 'package:carros_flutter_web/utils/debug_widget_size.dart';
+import 'package:carros_flutter_web/utils/web_utils.dart';
 import 'package:flutter/material.dart';
 
 class DefaultPage extends StatefulWidget {
@@ -20,16 +21,33 @@ class _DefaultPageState extends State<DefaultPage> {
     return GridView.builder(
       itemCount: 100,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
-        childAspectRatio: 1.5
-      ),
+          crossAxisCount: 2,
+          mainAxisSpacing: 20,
+          crossAxisSpacing: 20,
+          childAspectRatio: 1.5),
       itemBuilder: (context, index) {
-        return Card(
-          child: Center(
-            child: DebugWidgetSize(),
-          ),
+        return LayoutBuilder(
+          builder: (context, constraints) {
+            double fontSize = size(
+              constraints.maxWidth * 0.07,
+              min: 8,
+              max: Theme.of(context).textTheme.bodyText2!.fontSize!,
+            );
+
+            return Card(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                      "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Rolls_Royce_Phantom.png"),
+                  Text(
+                    " $fontSize Rolls Royce Phantom Leozim",
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            );
+          },
         );
       },
     );
