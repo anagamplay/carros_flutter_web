@@ -1,5 +1,7 @@
+import 'package:carros_flutter_web/app_model.dart';
 import 'package:carros_flutter_web/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +12,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: _theme(),
-      home: HomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => AppModel(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: _theme(),
+        home: HomePage(),
+      ),
     );
   }
 
