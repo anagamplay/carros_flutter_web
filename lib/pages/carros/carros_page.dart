@@ -1,5 +1,7 @@
 import 'package:carros_flutter_web/pages/carros/carro.dart';
+import 'package:carros_flutter_web/pages/carros/carro_page.dart';
 import 'package:carros_flutter_web/pages/carros/carros_api.dart';
+import 'package:carros_flutter_web/utils/nav.dart';
 import 'package:carros_flutter_web/utils/web_utils.dart';
 import 'package:flutter/material.dart';
 
@@ -48,29 +50,36 @@ class _CarrosPageState extends State<CarrosPage> {
 
             Carro carro = carros[index];
 
-            return Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: 350,
-                      maxHeight: 150,
+            return InkWell(
+              onTap: () => _onClickCarro(carro),
+              child: Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: 350,
+                        maxHeight: 150,
+                      ),
+                      child: Image.network(
+                          carro.urlFoto ?? "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Rolls_Royce_Phantom.png"),
                     ),
-                    child: Image.network(
-                        carro.urlFoto ?? "https://s3-sa-east-1.amazonaws.com/videos.livetouchdev.com.br/luxo/Rolls_Royce_Phantom.png"),
-                  ),
-                  Text(
-                    carro.nome ?? "",
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: fontSize),
-                  ),
-                ],
+                    Text(
+                      carro.nome ?? "",
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: fontSize),
+                    ),
+                  ],
+                ),
               ),
             );
           },
         );
       },
     );
+  }
+
+  _onClickCarro(Carro carro) {
+    push(context, CarroPage(carro));
   }
 }
