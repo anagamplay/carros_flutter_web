@@ -90,5 +90,18 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Oswald
+      fonts:
+        - asset: assets/fonts/Oswald-VariableFont_wght.ttf
+          weight: 400
+    - family: Pacifico
+      fonts:
+          - asset: assets/fonts/Pacifico-Regular.ttf
+            weight: 400
+    - family: Sofia Sans
+      fonts:
+          - asset: assets/fonts/SofiaSans-VariableFont_wght.ttf
+            weight: 400
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
