@@ -1,4 +1,4 @@
-import 'package:carros_flutter_web/utils/app_model.dart';
+import 'package:carros_flutter_web/app_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,6 +10,6 @@ class Body extends StatelessWidget {
 
     AppModel app = Provider.of<AppModel>(context);
 
-    return app.page!;
+    return app.pages.last;
   }
 }

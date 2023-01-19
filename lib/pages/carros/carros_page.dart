@@ -1,9 +1,11 @@
+import 'package:carros_flutter_web/app_model.dart';
 import 'package:carros_flutter_web/pages/carros/carro.dart';
 import 'package:carros_flutter_web/pages/carros/carro_page.dart';
 import 'package:carros_flutter_web/pages/carros/carros_api.dart';
 import 'package:carros_flutter_web/utils/nav.dart';
 import 'package:carros_flutter_web/utils/web_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CarrosPage extends StatefulWidget {
   const CarrosPage({Key? key}) : super(key: key);
@@ -80,6 +82,7 @@ class _CarrosPageState extends State<CarrosPage> {
   }
 
   _onClickCarro(Carro carro) {
-    push(context, CarroPage(carro));
+    AppModel app = Provider.of<AppModel>(context, listen: false);
+    app.push(CarroPage(carro));
   }
 }

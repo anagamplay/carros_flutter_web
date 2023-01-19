@@ -3,14 +3,14 @@ import 'package:flutter/cupertino.dart';
 
 class AppModel extends ChangeNotifier {
 
-  Widget? page;
+  List<Widget> pages = [];
 
   AppModel() {
-    page = CarrosPage();
+    pages.add(CarrosPage());
   }
 
-  setPage(Widget page) {
-    this.page = page;
+  push(Widget page) {
+    pages.add(page);
 
     notifyListeners();
   }
