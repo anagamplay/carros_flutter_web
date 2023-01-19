@@ -1,20 +1,38 @@
-import 'package:carros_flutter_web/pages/carros/carros_page.dart';
+import 'package:carros_flutter_web/pages/default_page.dart';
 import 'package:flutter/cupertino.dart';
+
+class PageInfo {
+  String title;
+  Widget page;
+
+  PageInfo(this.title, this.page);
+
+  @override
+  String toString() {
+    return title;
+  }
+}
 
 class AppModel extends ChangeNotifier {
 
-  List<Widget> pages = [];
+  List<PageInfo> pages = [];
+
+  PageInfo defaultPage = PageInfo("Home", DefaultPage());
 
   AppModel() {
-    pages.add(CarrosPage());
+    pages.add(defaultPage);
   }
 
-  push(Widget page, {bool replace = false}) {
+  push(PageInfo page, {bool replace = false}) {
     if(replace) {
       pages.clear();
+
+      pages.add(defaultPage);
     }
 
-    pages.add(page);
+    if(page.title != "Home") {
+      pages.add(page);
+    }
 
     notifyListeners();
   }

@@ -2,7 +2,6 @@ import 'package:carros_flutter_web/app_model.dart';
 import 'package:carros_flutter_web/pages/carros/carro.dart';
 import 'package:carros_flutter_web/pages/carros/carro_page.dart';
 import 'package:carros_flutter_web/pages/carros/carros_api.dart';
-import 'package:carros_flutter_web/utils/nav.dart';
 import 'package:carros_flutter_web/utils/web_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -83,6 +82,6 @@ class _CarrosPageState extends State<CarrosPage> {
 
   _onClickCarro(Carro carro) {
     AppModel app = Provider.of<AppModel>(context, listen: false);
-    app.push(CarroPage(carro));
+    app.push(PageInfo(carro.nome!, CarroPage(carro)));
   }
 }
