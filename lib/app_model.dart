@@ -25,9 +25,7 @@ class AppModel extends ChangeNotifier {
 
   push(PageInfo page, {bool replace = false}) {
     if(replace) {
-      pages.clear();
-
-      pages.add(defaultPage);
+      popAll();
     }
 
     if(page.title != "Home") {
@@ -39,6 +37,19 @@ class AppModel extends ChangeNotifier {
 
   pop() {
     pages.removeLast();
+
+    notifyListeners();
+  }
+
+  void popAll() {
+    pages.clear();
+    pages.add(defaultPage);
+
+    notifyListeners();
+  }
+
+  void popTo(int index) {
+    pages.removeRange(index+1, pages.length);
 
     notifyListeners();
   }
