@@ -1,4 +1,5 @@
 import 'package:carros_flutter_web/app_model.dart';
+import 'package:carros_flutter_web/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,7 @@ class _BreadCrumbState extends State<BreadCrumb> {
                     ? FontAwesomeIcons.house
                     : FontAwesomeIcons.chevronRight,
                 size: 20,
+                color: AppColors.blue,
               ),
             ),
             Text(
