@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class InfoPage extends StatefulWidget {
   const InfoPage({Key? key}) : super(key: key);
@@ -21,6 +22,7 @@ class _InfoPageState extends State<InfoPage> {
       child: ListView(
         children: <Widget>[
           _font(),
+          _userAgente(),
         ],
       ),
     );
@@ -42,6 +44,17 @@ class _InfoPageState extends State<InfoPage> {
           Text("Sofia Sans:   Flutter Web", style: TextStyle(fontFamily: 'Sofia Sans')),
           SizedBox(height: 10),
         ],
+      ),
+    );
+  }
+
+  _userAgente() {
+    return Card(
+      child: Container(
+        padding: EdgeInsets.all(16),
+        child: Center(
+          child: Text('User agent: ${html.window.navigator.userAgent}'),
+        ),
       ),
     );
   }
